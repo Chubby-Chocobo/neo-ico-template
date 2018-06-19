@@ -205,3 +205,49 @@ def calculate_can_exchange(ctx, amount, address, verify_only):
         return False
 
     return False
+
+def foo(ctx, param1, param2, param3):
+
+    if param1 == 0:
+        print('case1: param1 == 0')
+        return 0
+
+    if param2 == 0:
+        print('case2: param1 == 0')
+        return 0
+
+    temp_var1 = 0
+    stored_value1 = Get(ctx, 'value1')
+    stored_value2 = Get(ctx, 'value2')
+    stored_value3 = Get(ctx, 'value3')
+    stored_value4 = Get(ctx, 'value4')
+    stored_value5 = Get(ctx, 'value5')
+    stored_value6 = Get(ctx, 'value6')
+
+    if (stored_value1 <= param3) and (param3 <= stored_value2):
+        if not Get(ctx, 'condition1'):
+            print('case3: condition1')
+            return 0
+
+        temp_var1 = stored_value2 + param3
+        temp_var2 = stored_value3 + param2
+
+        if temp_var2 > stored_value4:
+            stored_value7 = Get(ctx, 'value7')
+            if stored_value7 > temp_var1:
+                return 0
+
+            return stored_value7
+
+        if temp_var2 > stored_value5:
+            temp_var1 = stored_value5 + stored_value6
+            if (temp_var1 > param1):
+                return stored_value6
+
+        return temp_var1
+
+    if (stored_value3 <= param3) and (param3 <= stored_value4):
+        temp_var1 = param1 + param2 + param3
+        return temp_var1
+
+    return 0
